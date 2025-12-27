@@ -1,0 +1,278 @@
+/* -------------------------------------------
+  Universal Box Sizing
+------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------------------------------------------
+  Body Styling: Modern Gradient + Typography + Background Animation
+------------------------------------------- */
+body {
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(to top,#d6f4e6ef, rgba(231, 248, 251, 0.567)); /* Soft calming gradient */
+  color: #222;
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+  position: relative;
+}
+
+/* Floating subtle animated blobs for lively background */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  filter: blur(90px);
+  z-index: -1;
+  animation: float 14s ease-in-out infinite alternate;
+}
+body::after {
+  top: 60%;
+  left: 70%;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  100% { transform: translateY(-60px) translateX(60px) rotate(360deg); }
+}
+
+/* -------------------------------------------
+  Heading
+------------------------------------------- */
+h1 {
+  margin-bottom: 16px;
+  font-size: 2.7rem;
+  color: #6a1b9a; /* Rich purple for modern look */
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.12);
+  letter-spacing: 1.5px;
+}
+
+/* -------------------------------------------
+  Muted Text
+------------------------------------------- */
+.muted {
+  color: #555;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* -------------------------------------------
+  Rounds Selector Container
+------------------------------------------- */
+.rounds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0;
+  font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0d47a1; /* Dark blue matching hands/buttons */
+}
+
+/* Label styling */
+.rounds label {
+  font-size: 1rem;
+  color: #0d47a1;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+}
+
+/* Select dropdown styling */
+.rounds select {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.45); /* Glassmorphism effect */
+  backdrop-filter: blur(8px);
+  box-shadow: 6px 6px 12px rgba(0,0,0,0.08), -6px -6px 12px rgba(255,255,255,0.6);
+  font-size: 1rem;
+  color: #0d47a1; /* Match game theme */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+/* Hover effect for select */
+.rounds select:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 10px 10px 18px rgba(0,0,0,0.12), -10px -10px 18px rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.55);
+}
+
+/* Active/focus effect for select */
+.rounds select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.3);
+  transform: scale(1.05);
+}
+
+
+/* -------------------------------------------
+  Hands Arena
+------------------------------------------- */
+.arena {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 28px 0;
+}
+
+.hand {
+  font-size: 72px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.35); /* Glassmorphism effect */
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: 12px 12px 28px rgba(0,0,0,0.12), -12px -12px 28px rgba(255,255,255,0.6);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+  color: #4a148c; /* Deep purple hand color */
+}
+
+.hand:hover {
+  /* transform: scale(1.1) rotate(5deg); */
+  background: rgba(255,255,255,0.45);
+  box-shadow: 16px 16px 32px rgba(0,0,0,0.16), -16px -16px 32px rgba(255,255,255,0.7);
+}
+
+/* Shake Animation */
+.shake {
+  animation: shake 0.8s ease;
+}
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+  100% { transform: rotate(0); }
+}
+
+/* -------------------------------------------
+  Controls / Buttons
+------------------------------------------- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.move-btn {
+  font-size: 36px;
+  padding: 20px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  color: #6a1b9a;
+  background: linear-gradient(145deg, #ffffff, #e0e0ff);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.12), -10px -10px 20px rgba(255,255,255,0.7);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease, color 0.3s ease;
+  font-weight: 700;
+}
+
+.move-btn:hover {
+  transform: translateY(-6px) scale(1.1);
+  box-shadow: 16px 16px 28px rgba(0,0,0,0.18), -16px -16px 28px rgba(255,255,255,0.85);
+  background: linear-gradient(145deg, #f0f0ff, #ffffff);
+  color: #311b92;
+}
+
+.move-btn:active {
+  transform: scale(0.95);
+  box-shadow: inset 6px 6px 14px rgba(0,0,0,0.18), inset -6px -6px 14px rgba(255,255,255,0.75);
+}
+
+/* -------------------------------------------
+  Status Messages
+------------------------------------------- */
+.status {
+  margin-top: 22px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #d32f2f; /* Red for round results */
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.1);
+  transition: all 0.35s ease;
+}
+
+#result, #finalMessage {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.15);
+  transition: all 0.4s ease;
+}
+#finalMessage {
+  color: #6a1b9a; /* Deep purple final message */
+}
+
+/* -------------------------------------------
+  Scoreboard Styling
+------------------------------------------- */
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  transition: all 0.35s ease;
+}
+
+.scoreboard div {
+  padding: 14px 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.38);
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.1), -10px -10px 20px rgba(255,255,255,0.6);
+  min-width: 95px;
+  transition: all 0.35s ease;
+  color: #1a237e; /* Navy-ish for scoreboard numbers */
+}
+
+/* -------------------------------------------
+  Reset Button
+------------------------------------------- */
+#reset {
+  padding: 14px 24px;
+  margin-left: 320px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff5252, #d50000);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#reset:hover {
+  transform: translateY(-5px) scale(1.07);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  background: linear-gradient(135deg, #ff1744, #b71c1c);
+}
+
+#reset:active {
+  transform: scale(0.95);
+  box-shadow: inset 6px 6px 14px rgba(0,0,0,0.28);
+}
+
+/* -------------------------------------------
+  Responsive Design
+------------------------------------------- */
+@media (max-width: 600px) {
+  .arena { gap: 28px; }
+  .hand { font-size: 56px; padding: 16px; }
+  .move-btn { font-size: 32px; padding: 16px; }
+  .scoreboard { flex-direction: column; gap: 16px; }
+  #reset { font-size: 0.95rem; padding: 12px 18px; margin-left: 0; }
+}

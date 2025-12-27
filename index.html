@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stone Paper Scissors</title>
+  <link rel="stylesheet" href="./Css/game.css" />
+</head>
+
+<body>
+  <h1>Stone · Paper · Scissor</h1>
+  <p class="muted">Choose your move</p>
+
+  <!-- Round Options -->
+  <div class="rounds">
+    <label>Rounds:</label>
+    <select id="roundSelect">
+        <option value="1">Single Round</option>
+      <option value="3">Best of 3</option>
+      <option value="5">Best of 5</option>
+      <option value="10">Best of 10</option>
+    </select>
+  </div>
+
+  <!-- Hands Area -->
+  <div class="arena">
+    <div class="hand player-hand">👤</div>
+    <div class="hand computer-hand">💻</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="move-btn" data-move="STONE">✊Stone</button>
+    <button class="move-btn" data-move="PAPER">✋ Paper</button>
+    <button class="move-btn" data-move="SCISSOR">✌️Scissor</button>
+  </div>
+
+  <!-- Status -->
+  <div class="status">
+    <div id="result"></div>
+  </div>
+
+  <!-- Scoreboard -->
+  <div class="scoreboard">
+    <div>Wins: <span id="win">0</span></div>
+    <div>Losses: <span id="lost">0</span></div>
+    <div>Ties: <span id="tie">0</span></div>
+  </div>
+  <div id="result"></div>
+  <div id="finalMessage"></div>
+
+
+  <button id="reset">Reset </button>
+
+  <canvas id="confetti"></canvas>
+
+  <script src="./Javascript/game.js"></script>
+</body>
+</html>
