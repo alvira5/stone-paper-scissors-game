@@ -45,40 +45,6 @@ function updateUI() {
   tieEl.textContent = score.tie;
 }
 
-// function playRound(playerChoice) {
-//   const compChoice = computerMove();
-
-//   playerHand.classList.add("shake");
-//   computerHand.classList.add("shake");
-
-//   setTimeout(() => {
-//     playerHand.textContent = icons[playerChoice];
-//     computerHand.textContent = icons[compChoice];
-
-//     const result = decideWinner(playerChoice, compChoice);
-
-//     if (result === "win") {
-//       score.win++;
-//       streak++;
-//       resultEl.textContent = "You Won!";
-//       streakEl.textContent = `🔥 Winning Streak: ${streak}`;
-//       launchConfetti();
-//     } else if (result === "lost") {
-//       score.lost++;
-//       streak = 0;
-//       resultEl.textContent = "Computer Won!";
-//       streakEl.textContent = "";
-//     } else {
-//       score.tie++;
-//       resultEl.textContent = "It's a Tie!";
-//     }
-
-//     updateUI();
-
-//     playerHand.classList.remove("shake");
-//     computerHand.classList.remove("shake");
-//   }, 800);
-// }
 
 function playRound(playerChoice) {
   if (roundsPlayed >= totalRounds) return;
@@ -113,7 +79,7 @@ function playRound(playerChoice) {
     playerHand.classList.remove("shake");
     computerHand.classList.remove("shake");
 
-    // ✅ FINAL RESULT CHECK
+    // FINAL RESULT CHECK
     if (roundsPlayed === totalRounds) {
       showFinalResult();
     }
@@ -172,13 +138,6 @@ buttons.forEach(btn => {
   });
 });
 
-// resetBtn.addEventListener("click", () => {
-//   score = { win: 0, lost: 0, tie: 0 };
-//   streak = 0;
-//   updateUI();
-//   resultEl.textContent = "";
-//   streakEl.textContent = "";
-// });
 
 resetBtn.addEventListener("click", () => {
   resetGame();
